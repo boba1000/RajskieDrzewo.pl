@@ -59,7 +59,7 @@ cc.Config = {
     enablePromotionCodes: false,
     trustedShopsEnabled: true,
     trustedShopsId: '123',
-    gitHubRepoUrl: 'https://github.com/araczkowski/24j',
+    gitHubRepoUrl: 'https://github.com/sviete/RajskieDrzewo.pl',
     showPayPalButton: false,
     showCheckoutButton: true,
     googleAnalytics:'UA-42659602-1',
