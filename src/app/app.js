@@ -426,7 +426,8 @@ angular.module('CouchCommerceApp', [
             actionId: configService.get('bingActionId')
         }));
     }
-}])
+}]);
+/*
 .run(['dialog', '$timeout', 'storageService', function (dialog, $timeout, storageService) {
 
     if (!storageService.get('has-shown-welcome-modal')) {
@@ -447,3 +448,4 @@ angular.module('CouchCommerceApp', [
         });
     }
 }]);
+*/

@@ -2,9 +2,9 @@ cc.Config = {
     loggingEnabled: true,
     useShopUrls: false,
     storeCode: '35444',
-    storeName: 'local',
-    originalUrl:'http://www.disney.com/',
-    noRedirectSuffix:'/CC/noRedirect',
+    storeName: 'RajskeDrzewo.pl',
+    originalUrl:'http://www.RajskeDrzewo.pl/',
+    noRedirectSuffix:'desktop',
     searchUrl: 'http://localhost:9001/search',
     apiUrl: 'http://localhost:9001/products',
     checkoutUrl:'http://localhost:9001/checkout/',
@@ -19,47 +19,48 @@ cc.Config = {
     mediaImgExtension:'jpg',
     mediaPlaceholder:'http://localhost:9001/media/platzhalter.jpg',
     resourceUrl:'/data/pages/',
-    shippingCost:5,
-    shippingTax:19,
+    shippingCost:0,
+    shippingTax:0,
     shippingFreeFrom: null,
-    currency:'EUR',
-    currencySign:'€',
+    currency:'PLN',
+    currencySign:'PLN',
     showGeneralAgreement:1,
-    showAgeAgreement:0,
+    showAgeAgreement:1,
     showAppExitLink:true,
-    linkGeneralAgreement:'saturn',
-    linkRecallAgreement:'neptune',
+    linkGeneralAgreement:'rules',
+    linkRecallAgreement:'privacy',
     linkAgeAgreement:'age',
-    linkShippingCosts:'shipping',
-    locale:'de-de',
-    countries:[{"value":"DE","label":"Deutschland"},{"value":"AT","label":"\u00d6sterreich"},{"value":"AE","label":"Arabische Emirate"},{"value":"AU","label":"Australien"},{"value":"BE","label":"Belgien"},{"value":"DK","label":"D\u00e4nemark"},{"value":"FI","label":"Finnland"},{"value":"IT","label":"Italien"},{"value":"NL","label":"Niederlande"},{"value":"CH","label":"Schweiz"},{"value":"ES","label":"Spanien"}],
+    linkShippingCosts:'costs',
+    locale:'en-en',
+    countries:[{"value":"PL","label":"Polska"}],
     aboutPages:[
             {
-                title:'AGB',
-                id:'neptune'
+                title:'Regulamin serwisu',
+                id:'rules'
             },
             {
-                title:'Datenschutz',
-                id:'saturn'
+                title:'Ochrona prywatności',
+                id:'privacy'
             },
             {
-                title:'Rückgabeinformationen',
-                id:'something'
+                title:'Koszty i odpowiedzialność',
+                id:'costs'
             }
     ],
     injects: [
         {
             url: '/',
-            template: 'some-teaser',
+            template: 'teaser',
             target: 'aboveContent' //aboveContent, aboveFooter, beneathFooter
         }
     ],
     extraBillingFields: [], // 'merchantnote', 'pickuptimeatstore', 'streetextra'
     showSearch: true,
-    enablePromotionCodes: true,
+    enablePromotionCodes: false,
     trustedShopsEnabled: true,
-    trustedShopsId: 'X35A8844FD4E62A875C2C9E1C05C39CD4',
-    showPayPalButton: true,
+    trustedShopsId: '123',
+    gitHubRepoUrl: 'https://github.com/araczkowski/24j',
+    showPayPalButton: false,
     showCheckoutButton: true,
     googleAnalytics:'UA-42659602-1',
     googleAnalyticsSetDomain:'couchdemoshop.couchcommerce.com',
@@ -70,6 +71,7 @@ cc.Config = {
     bingActionId: '',
     meta: {
         robots: 'noodp, noydir',
-        description: 'This is the CouchDemoShop yay!'
+        description: 'RajskeDrzewo.pl jedz jabłka na zdrowie'
     }
 };
+

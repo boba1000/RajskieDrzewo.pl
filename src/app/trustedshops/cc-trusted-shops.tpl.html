@@ -1,14 +1,15 @@
 <div cc-scroller-announcer class="cc-view-wrapper cc-trusted-shops-view">
-    <img class="cc-trusted-shops-dialog__image" ng-src="https://www.trustedshops.de/certificate/images/logo/trustedshops_{{ locale }}.jpg">
+    <img class="cc-trusted-shops-dialog__image" ng-src="../assets/images/gplv3-127x51.png">
 
     <h1 class="cc-title--huge" ng-bind="ln.tsOverlayTitle"></h1>
 
     <div ng-bind-html="ln.tsOverlayExplanation"></div>
 
-    <p>No. {{ cfg.trustedShopsId }}</p>
+    <p>Sponsorowanie hostingu oraz organizaje rozwoju projektu zapewnia firma <a href="http://www.sviete.pl">Sviete</a>.</p>
+    <p>Kod projektu bazuje na otwartych rozwiązaniach i jest dostępny na licencji wolnego i otwartego oprogramowania: <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>
+    </p>
 
-    <form action="https://www.trustedshops.de/shop/certificate.php" target="_blank">
-        <input type="hidden" name="shop_id" value="{{ cfg.trustedShopsId }}">
-        <button type="submit" class="cc-trusted-shops-button" ng-bind="ln.tsOverlayDetailsButton"></button>
-    </form>
+    <p>Repoozytorium kodu projektu: <a href="{{ cfg.gitHubRepoUrl }}"> {{ cfg.gitHubRepoUrl }} </a>
+    </p>
+
 </div>

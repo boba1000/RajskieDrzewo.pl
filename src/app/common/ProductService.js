@@ -13,16 +13,16 @@ angular.module('CouchCommerceApp')
         var price = $filter('currency')(product.getBasePriceStr(selectedVariant));
 
         if (product.getUnit() === 'kg') {
-            return 'entspricht ' + price + ' pro 1 Kilogramm (kg)';
+            return  price + ' za 1 Kilogram (kg)';
         }
         else if (product.getUnit() === 'St') {
-            return 'entspricht ' + price + ' pro 1 Stück (St)';
+            return  price + ' za 1 Sztukę (Szt)';
         }
         else if (product.getUnit() === 'L') {
-            return 'entspricht ' + price + ' pro 1 Liter (l)';
+            return  price + ' za 1 Litr (l)';
         }
         else if (product.hasUnit()) {
-            return 'entspricht ' + price + ' pro ' + product.getUnit();
+            return price + ' za ' + product.getUnit();
         }
 
         return '';
