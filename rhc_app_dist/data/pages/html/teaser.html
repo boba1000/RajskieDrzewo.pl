@@ -1,0 +1,25 @@
+<style type="text/css">
+
+    .teaser--test img {
+        display:block;
+        max-width:100%;
+    }
+
+</style>
+
+<div class="teaser teaser--test">
+
+    <div ng-if="!deviceService.isTabletSize() && deviceService.isInPortraitMode()">
+        <!-- smartphone portrait -->
+        <img ng-src="data/pages/html/pretty_apple_640x200.jpg" alt=""/>
+    </div>
+    <div ng-if="(!deviceService.isTabletSize() && !deviceService.isInPortraitMode()) || deviceService.isTabletSize() && deviceService.isInPortraitMode()">
+        <!-- smartphone landscape && tablet portrait -->
+        <img ng-src="data/pages/html/pretty_apple_1536x500.jpg" alt=""/>
+    </div>
+    <div ng-if="deviceService.isTabletSize() && !deviceService.isInPortraitMode()">
+        <!-- tablet landscape mode -->
+        <img ng-src="data/pages/html/pretty_apple_2048x800.jpg" alt=""/>
+    </div>
+
+</div>

@@ -1,0 +1,63 @@
+{
+    "label": "shopware40demo",
+    "urlId": "",
+    "originFullUrl": "/",
+    "children": [{
+            "label": "Jabłka deserowe",
+            "urlId": "deserowe",
+            "originFullUrl": "/deserowe",
+            "children": [{
+                "label": "Delikates",
+                "urlId": "delikates",
+                "originFullUrl": "/delikates"
+            }, {
+                "label": "Ligol",
+                "urlId": "ligol",
+                "originFullUrl": "/ligol"
+            }, {
+                "label": "Rubin",
+                "urlId": "rubin",
+                "originFullUrl": "/rubin"
+            }, {
+                "label": "Jonatan",
+                "urlId": "jonatan",
+                "originFullUrl": "/jonatan"
+            }, {
+                "label": "Gala",
+                "urlId": "gala",
+                "originFullUrl": "/gala"
+            }]
+        }, {
+            "label": "Jabłka stołowe",
+            "urlId": "stolowe",
+            "originFullUrl": "/stolowe",
+            "children": [{
+                "label": "Cortland",
+                "urlId": "cortland",
+                "originFullUrl": "/cortland"
+            }, {
+                "label": "Idared",
+                "urlId": "idared",
+                "originFullUrl": "/idared"
+            }]
+        }, {
+            "label": "Jabłka na przetwory",
+            "urlId": "przetwory",
+            "originFullUrl": "/przetwory",
+            "children": [{
+                "label": "Antonówka",
+                "urlId": "antonowka",
+                "originFullUrl": "/antonowka"
+            }, {
+                "label": "Reneta",
+                "urlId": "reneta",
+                "originFullUrl": "/reneta"
+            }]
+        },
+        {
+            "label": "% Promocje",
+            "urlId": "promocje",
+            "originFullUrl": "/promocje"
+        }
+    ]
+}

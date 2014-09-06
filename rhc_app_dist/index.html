@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"
+  ng-class="{'cc-tablet-size' : isTabletSize }"
+  ng-app="CouchCommerceApp"
+  ng-controller="MainController">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="fragment" content="!">
+    <meta name="robots" content="{{meta.robots}}">
+    <meta name="description" content="{{meta.description}}">
+
+    <title>RajskieDrzewo.pl</title>
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css" />
+</head>
+<!-- http://stackoverflow.com/questions/3885018/active-pseudo-class-doesnt-work-in-mobile-safari -->
+<body ontouchstart="">
+    <!-- initially we used ng-include on the body. Unfortunately this broke deep linking for products/product
+    However, our goal is to not introduce an unneeded wrapping div as it further stresses the mental overload
+    that already comes with the complex task of creating robust fixed toolbars + fallback + a scrolling container.
+    We now achieve the same as with ng-include on the body by using cc-include on a child div (the child div
+    will be replaced after the directive does it's thing)  -->
+    <div cc-include="tpl.SHELL"></div>
+    <!-- compiled JS -->
+    <script type="text/javascript" src="/vendor/angular-unstable/angular.js"></script>
+    <script type="text/javascript" src="/vendor/angular-unstable/angular-animate.js"></script>
+    <script type="text/javascript" src="/vendor/angular-unstable/angular-sanitize.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-bindonce/bindonce.js"></script>
+    <script type="text/javascript" src="/vendor/ui-router/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/vendor/ui-modal/ui-bootstrap-modal-tpls-0.6.0.js"></script>
+    <script type="text/javascript" src="/vendor/snap/snap.js"></script>
+    <script type="text/javascript" src="/vendor/snap/angular-snap.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-core/dist/sofa.core.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-storages/dist/sofa.storages.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-logging-service/dist/sofa.loggingService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-device-service/dist/sofa.deviceService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-url-parser-service/dist/sofa.urlParserService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-url-construction-service/dist/sofa.urlConstructionService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-search-service/dist/sofa.searchService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-tracking/dist/sofa.tracking.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-user-service/dist/sofa.userService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-basket-service/dist/sofa.basketService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-wishlist-service/dist/sofa.wishlistService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-image-resizer-service/dist/sofa.imageResizerService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-pages-service/dist/sofa.pagesService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-checkout-service/dist/sofa.checkoutService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-couch-service/dist/sofa.couchService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-coupon-service/dist/sofa.couponService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-state-resolver-service/dist/sofa.stateResolverService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/core/fastclick.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/core/rAF.polyfill.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/decorators/$rootScope.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccAddress/ccAddress.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccBreadcrumbs/ccBreadcrumbs.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccCategoryTreeView/_declarations.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccCategoryTreeView/ccCategoryTreeView.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccCategoryTreeView/ccCategoryTreeViewRemote.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccCategoryTreeView/ccNestedCategoryItem.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccCheckBox/ccCheckBox.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/_declarations.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/demos/app.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/domPosLeft.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/dragInfoService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/elasticModel.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/elasticViewConfig.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/elasticViewControllerFactory.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/elasticViewDirective.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/hammer.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccElasticViews/viewCollectionFactory.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccFixedToolbarsView/ccFixedToolbarsView.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccFooterLinks/ccFooterLinks.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccGoBackButton/ccGoBackButton.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccGoUpButton/ccGoUpButton.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccGoUpControl/ccGoUpControl.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageFullScreen/_declarations.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageFullScreen/ccImageFullScreen.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageFullScreen/ccImageFullScreenService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/_declarations.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoom.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoomDomActors.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoomDomUtil.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoomLerpAnim.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoomMaskService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccImageZoom/ccImageZoomSettings.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccInclude/ccInclude.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccInject/ccInject.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccIosInputFocusFix/_declarations.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccIosInputFocusFix/ccIosInputFocusFix.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccIosInputFocusFix/inputFocusFixConfigService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccLazyValidation/ccLazyValidation.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccLoadingSpinner/ccLoadingSpinner.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccPrice/ccPrice.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccScrollFix/ccScrollFix.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccScrollingShadow/ccScrollingShadow.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccSearchField/ccSearchField.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccSelectBox/ccSelectBox.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccTemplateCode/ccTemplateCode.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccThumbnailBar/ccThumbnailBar.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccVariantSelector/ccVariantSelector.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/ccZippy/ccZippy.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/directives.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/sofaName/sofaNameDirective.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/directives/sofaRadioButton/sofaRadioButtonDirective.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/filter/currency/currencyFilter.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/filter/filter.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/BasketService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/CheckoutService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/ConfigService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/CouchService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/CouponService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/DeviceService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/ImageResizeService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/InjectsService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/LoggingService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/MemoryStorageService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/NavigationService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/PagesService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/RequestAnimationFrame.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/SearchService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/SessionStorageService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/StateResolverService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/TrackingService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/UrlConstructionService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/UrlParserService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/UserService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/WishlistService.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/src/services/chayns.js"></script>
+    <script type="text/javascript" src="/node_modules/sofa-base/dist/cc.angular.templates.js"></script>
+    <script type="text/javascript" src="/data/local/cc.config.js"></script>
+    <script type="text/javascript" src="/data/local/cc.lang.js"></script>
+    <script type="text/javascript" src="/src/app/app.js"></script>
+    <script type="text/javascript" src="/src/app/cart/CartController.js"></script>
+    <script type="text/javascript" src="/src/app/cart/PayPalOverlayController.js"></script>
+    <script type="text/javascript" src="/src/app/categories/CategoryController.js"></script>
+    <script type="text/javascript" src="/src/app/checkout/CheckoutController.js"></script>
+    <script type="text/javascript" src="/src/app/common/BackStepHighlightService.js"></script>
+    <script type="text/javascript" src="/src/app/common/MainController.js"></script>
+    <script type="text/javascript" src="/src/app/common/MetaService.js"></script>
+    <script type="text/javascript" src="/src/app/common/PayPalOverlayService.js"></script>
+    <script type="text/javascript" src="/src/app/common/ProductService.js"></script>
+    <script type="text/javascript" src="/src/app/common/ScreenIndexes.js"></script>
+    <script type="text/javascript" src="/src/app/common/ScrollPositionService.js"></script>
+    <script type="text/javascript" src="/src/app/common/SelectionService.js"></script>
+    <script type="text/javascript" src="/src/app/common/ShippingMethodFormatter.js"></script>
+    <script type="text/javascript" src="/src/app/common/SlideDirectionService.js"></script>
+    <script type="text/javascript" src="/src/app/common/StateChangeService.js"></script>
+    <script type="text/javascript" src="/src/app/common/TemplateService.js"></script>
+    <script type="text/javascript" src="/src/app/common/ViewClassService.js"></script>
+    <script type="text/javascript" src="/src/app/common/ccScrollerAnnouncer.js"></script>
+    <script type="text/javascript" src="/src/app/common/ccSrcDirective.js"></script>
+    <script type="text/javascript" src="/src/app/common/contextviews/ContextViewService.js"></script>
+    <script type="text/javascript" src="/src/app/common/dialog/dialog.js"></script>
+    <script type="text/javascript" src="/src/app/common/footer/ccFooter.js"></script>
+    <script type="text/javascript" src="/src/app/common/header/HeaderController.js"></script>
+    <script type="text/javascript" src="/src/app/common/sidemenu/SidemenuController.js"></script>
+    <script type="text/javascript" src="/src/app/common/sidemenu/sidemenuUiStateService.js"></script>
+    <script type="text/javascript" src="/src/app/common/titleService.js"></script>
+    <script type="text/javascript" src="/src/app/pages/PagesController.js"></script>
+    <script type="text/javascript" src="/src/app/pages/PagesServiceExtension.js"></script>
+    <script type="text/javascript" src="/src/app/product/ProductController.js"></script>
+    <script type="text/javascript" src="/src/app/products/ProductsController.js"></script>
+    <script type="text/javascript" src="/src/app/search/SearchController.js"></script>
+    <script type="text/javascript" src="/src/app/search/SearchResultController.js"></script>
+    <script type="text/javascript" src="/src/app/search/SearchUiState.js"></script>
+    <script type="text/javascript" src="/src/app/summary/SummaryController.js"></script>
+    <script type="text/javascript" src="/src/app/summary/agreementHackDirective.js"></script>
+    <script type="text/javascript" src="/src/app/thankyou/ThankyouController.js"></script>
+    <script type="text/javascript" src="/src/app/trustedshops/TrustedShopsController.js"></script>
+    <script type="text/javascript" src="/src/app/trustedshops/TrustedShopsService.js"></script>
+    <script type="text/javascript" src="/src/app/wishlist/WishlistController.js"></script>
+    <script type="text/javascript" src="/src/app/wishlist/ccWishlistButtonDirective.js"></script>
+    <script type="text/javascript" src="/src/app/wishlist/ccWishlistStateDirective.js"></script>
+    <script type="text/javascript" src="/templates/templates.js"></script>
+</body>
+</html>

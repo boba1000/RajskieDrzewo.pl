@@ -1,0 +1,102 @@
+{
+    "totalCount": "2",
+    "products": [
+        {
+            "id": 1,
+            "sku": "SW10003",
+            "qty": "2",
+            "name": "Delikates klasa „ekstra”, Skrzynka 15 kg",
+            "price": "33.00",
+            "super": "xxx",
+            "variants": [],
+            "priceOld": "0.00",
+            "inStock": "true",
+            "retailer": "Sady i Owoce sp z.o.o.",
+            "retailerId": "470",
+            "locale": "pl_PL",
+            "description": "<p>Jest to jesienna odmiana jabłek. Owoce są średniej lub dużej wielkości, o kształcie owalnym i lekko spłaszczonym. Skórka jest cienka, gładka, delikatna, zielona z żywoczerwonym rumieńcem i pokryta tłustawym nalotem. Miąższ owocu jest biały, z zielonkawymi żyłkami i drobnoziarnisty. Jabłka Delikates są soczyste, delikatnie winne, wyjątkowo smaczne. Po przekrojeniu nie ciemnieją. Jest to odmiana delikatesowa jabłek, w związku z tym owoce zjada się na surowo. Czas ich przechowywania w warunkach chłodniczych wynosi ok. 4 miesięcy.</p>",
+            "brandName": "Delikates SiO",
+            "url": "",
+            "urlKey": "siospzoo-delikates-extra-15",
+            "originFullUrl": "/deserowe/delikates/siospzoo-delikates-extra-15",
+            "tax": "0",
+            "attributes": {
+                "Kolor": "Czerwony",
+                "Opakowanie": "skrzynka drewniana jedynka",
+                "Smak": "Soczysty delikatnie winny"
+            },
+            "custom1": "2.20",
+            "custom2": "1",
+            "custom3": "1 Kilogram",
+            "images": [
+                {
+                    "sizeName": "Small",
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
+                },
+                {
+                    "sizeName": "Large",
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
+                }
+            ],
+             "imagesAlt": [
+                {
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_2_720x600.jpg"
+                },
+                {
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_3_720x600.jpg"
+                }
+            ],
+            "colors": [],
+            "sizes": [],
+            "gender": "",
+            "delivery": "Szczegóły dostawy ustalane telefonicznie"
+        },
+        {
+            "id": 2,
+            "sku": "SW10003",
+            "qty": "220",
+            "name": "Delikates klasa I, worek 5 kg",
+            "price": "10.50",
+            "super": "xxx",
+            "variants": [],
+            "priceOld": "15.00",
+            "inStock": "true",
+            "retailer": "Sady i Owoce sp z.o.o.",
+            "retailerId": "470",
+            "locale": "pl_PL",
+            "description": "<p>Jest to jesienna odmiana jabłek. Owoce są średniej lub dużej wielkości, o kształcie owalnym i lekko spłaszczonym. Skórka jest cienka, gładka, delikatna, zielona z żywoczerwonym rumieńcem i pokryta tłustawym nalotem. Miąższ owocu jest biały, z zielonkawymi żyłkami i drobnoziarnisty. Jabłka Delikates są soczyste, delikatnie winne, wyjątkowo smaczne. Po przekrojeniu nie ciemnieją. Jest to odmiana delikatesowa jabłek, w związku z tym owoce zjada się na surowo. Czas ich przechowywania w warunkach chłodniczych wynosi ok. 4 miesięcy.</p>",
+            "brandName": "apple1",
+            "url": "",
+            "urlKey": "apple1-delikates-extra-5",
+            "originFullUrl": "/deserowe/delikates/apple1-delikates-extra-5",
+            "tax": "0",
+            "attributes": {
+                "Kolor": "Czerwony",
+                "Opakowanie": "worek foliowy",
+                "Smak": "Soczysty delikatnie winny"
+            },
+            "custom1": "2.10",
+            "custom2": "1",
+            "custom3": "1 Kilogram",
+            "images": [
+                {
+                    "sizeName": "Small",
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
+                },
+                {
+                    "sizeName": "Large",
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
+                }
+            ],
+             "imagesAlt": [
+                {
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-2.jpg"
+                }
+            ],
+            "colors": [],
+            "sizes": [],
+            "gender": "",
+            "delivery": "Szczegóły dostawy ustalane telefonicznie"
+        }
+    ]
+}
