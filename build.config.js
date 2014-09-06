@@ -11,6 +11,9 @@ module.exports = {
      */
     build_dir: 'build',
     compile_dir: 'dist',
+    server_dir: 'server',
+    rhc_app_dist: 'rhc_app_dist',
+    rhc_svr_dist: 'rhc_svr_dist',
     test_dir: 'test',
     sass_dir: 'assets/scss',
 

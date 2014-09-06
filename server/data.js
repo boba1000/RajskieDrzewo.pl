@@ -1,14 +1,14 @@
 'use strict';
 
-var config = require('../build.config');
+var config = require('./build.config');
 var _ = require('underscore');
 var walkDir = require('walkdir');
 var path = require('path');
 
-var categories = require('../data/local/categories.json');
+var categories = require('./data/local/categories.json');
 var products = {};
 
-walkDir.sync('server/products/', function (filePath) {
+walkDir.sync('products/', function (filePath) {
     var data = require(filePath);
     var baseName = path.basename(filePath, '.json');
     products[baseName] = data;

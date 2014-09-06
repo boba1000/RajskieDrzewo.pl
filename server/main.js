@@ -4,7 +4,9 @@ var express = require('express');
 var url = require('url');
 var app = express();
 var bodyParser = require('body-parser');
-var config = require('../build.config');
+var config = require('./build.config.js');
+var port = process.env.OPENSHIFT_NODEJS_PORT || config.server_port;
+var ip_addr = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
 
 // Load available routes
 var routes = {};
@@ -26,7 +28,10 @@ app.use(function (req, res, next) {
 });
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded()); // to support URL-encoded bodies
+//app.use(bodyParser.urlencoded()); // to support URL-encoded bodies
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // Utilize the route we requested
 app.use(function (req, res, next) {
@@ -43,6 +48,8 @@ app.use(function (req, res, next) {
 
 // Static host the media and app data folder
 app.use('/media', express.static(__dirname + '/media/'));
-app.use('/data', express.static(__dirname + '/../data/local/'));
+app.use('/data', express.static(__dirname + '/data/local/'));
 
-app.listen(config.server_port); /* jshint ignore:line */
+app.listen(port,ip_addr); /* jshint ignore:line */
+
+console.log('The server is working on IP: ' + ip_addr + ' port: ' + port);

@@ -6,21 +6,22 @@
  * connect-livereload integration.
  */
 var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
+var lrSnippet = require('connect-livereload')({
+    port: LIVERELOAD_PORT
+});
+var mountFolder = function(connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
 
-var pushStateHook = function (connect, dir) {
-    return function (req, res, next) {
+var pushStateHook = function(connect, dir) {
+    return function(req, res, next) {
         var path = require('path').resolve(dir);
         var fs = require('fs');
         if (fs.existsSync(path + req.url)) {
             next();
-        }
-        else {
-            fs.readFile(require('path').resolve(dir) + '/index.html', 'utf8', function (err, data) {
+        } else {
+            fs.readFile(require('path').resolve(dir) + '/index.html', 'utf8', function(err, data) {
                 res.end(data);
             });
         }
@@ -29,7 +30,7 @@ var pushStateHook = function (connect, dir) {
 
 var exec = require('child_process').exec;
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     /**
      * Load required Grunt tasks. These are installed based on the versions listed
@@ -67,8 +68,7 @@ module.exports = function (grunt) {
          * pairs are evaluated based on this very configuration object.
          */
         meta: {
-            banner:
-                '/**\n' +
+            banner: '/**\n' +
                 ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
                 ' * <%= pkg.homepage %>\n' +
                 ' *\n' +
@@ -95,9 +95,36 @@ module.exports = function (grunt) {
             build: {
                 src: '<%= build_dir %>'
             },
-
             compile: {
                 src: '<%= compile_dir %>'
+            },
+            rhc_app_dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%= rhc_app_dist %>/*',
+                        '!<%= rhc_app_dist %>/.git*',
+                        '!<%= rhc_app_dist %>/.openshift',
+                        '!<%= rhc_app_dist %>/server.js',
+                        '!<%= rhc_app_dist %>/README.md',
+                        '!<%= rhc_app_dist %>/deplist.txt',
+                        '!<%= rhc_app_dist %>/package.json'
+                    ]
+                }]
+            },
+            rhc_svr_dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%= rhc_svr_dist %>/*',
+                        '!<%= rhc_svr_dist %>/.git*',
+                        '!<%= rhc_svr_dist %>/.openshift',
+                        '!<%= rhc_svr_dist %>/server.js',
+                        '!<%= rhc_svr_dist %>/README.md',
+                        '!<%= rhc_svr_dist %>/deplist.txt',
+                        '!<%= rhc_svr_dist %>/package.json'
+                    ]
+                }]
             }
         },
 
@@ -195,9 +222,9 @@ module.exports = function (grunt) {
             build_assets: {
                 files: [
                     /**
-                    * Copy the whole assets folder to assets folder of
-                    * `build_dir`.
-                    */
+                     * Copy the whole assets folder to assets folder of
+                     * `build_dir`.
+                     */
                     {
                         src: ['**'],
                         dest: '<%= build_dir %>/assets/',
@@ -205,12 +232,12 @@ module.exports = function (grunt) {
                         expand: true
                     },
                     /**
-                    * Copy font files from `sass_dir` to assets folder of
-                    * `build_dir`. We assuming that `css` folder is there because
-                    * `sass` task already ran at this time.
-                    */
+                     * Copy font files from `sass_dir` to assets folder of
+                     * `build_dir`. We assuming that `css` folder is there because
+                     * `sass` task already ran at this time.
+                     */
                     {
-                        expand:  true,
+                        expand: true,
                         cwd: '<%= sass_dir %>/',
                         src: ['font/**/*'],
                         dest: '<%= build_dir %>/assets/css/'
@@ -219,113 +246,122 @@ module.exports = function (grunt) {
             },
 
             build_appjs: {
-                files: [
-                    {
-                        src: ['<%= app_files.js %>'],
-                        dest: '<%= build_dir %>',
-                        cwd: '.',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['<%= app_files.js %>'],
+                    dest: '<%= build_dir %>',
+                    cwd: '.',
+                    expand: true
+                }]
             },
 
             build_data: {
-                files: [
-                    {
-                        src: ['<%= shop_data_dir %>/**'],
-                        cwd: 'data',
-                        dest: '<%= build_dir %>/data/',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['<%= shop_data_dir %>/**'],
+                    cwd: 'data',
+                    dest: '<%= build_dir %>/data/',
+                    expand: true
+                }]
             },
 
             build_langdata: {
-                files: [
-                    {
-                        src: ['cc.lang.js'],
-                        cwd: 'data',
-                        dest: '<%= build_dir %>/data/',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['cc.lang.js'],
+                    cwd: 'data',
+                    dest: '<%= build_dir %>/data/',
+                    expand: true
+                }]
             },
 
             build_testfiles: {
-                files: [
-                    {
-                        src: ['<%= test_files.js %>'],
-                        dest: '<%= build_dir %>',
-                        cwd: '.',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['<%= test_files.js %>'],
+                    dest: '<%= build_dir %>',
+                    cwd: '.',
+                    expand: true
+                }]
             },
 
             /**
              * Copy static pages mocks for local development to build data folder.
              */
             build_staticpages: {
-                files: [
-                    {
-                        src: ['pages/html/**'],
-                        cwd: 'data',
-                        dest: '<%= build_dir %>/data/',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['pages/html/**'],
+                    cwd: 'data',
+                    dest: '<%= build_dir %>/data/',
+                    expand: true
+                }]
             },
 
             build_vendorcss: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= vendor_files.css %>'],
-                        cwd: '.',
-                        dest: '<%= build_dir %>/'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    src: ['<%= vendor_files.css %>'],
+                    cwd: '.',
+                    dest: '<%= build_dir %>/'
+                }]
             },
 
             build_vendorjs: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= vendor_files.js %>'],
-                        cwd: '.',
-                        dest: '<%= build_dir %>/',
-                        // this is a temporary fix for the case we have to reference
-                        // vendor files that sit in `../`.
-                        rename: function (dest, src) {
-                            if (src.indexOf('../') > -1) {
-                                src = src.replace('../', '');
-                            }
-                            return dest + src;
+                files: [{
+                    expand: true,
+                    src: ['<%= vendor_files.js %>'],
+                    cwd: '.',
+                    dest: '<%= build_dir %>/',
+                    // this is a temporary fix for the case we have to reference
+                    // vendor files that sit in `../`.
+                    rename: function(dest, src) {
+                        if (src.indexOf('../') > -1) {
+                            src = src.replace('../', '');
                         }
+                        return dest + src;
                     }
-                ]
+                }]
             },
 
             compile_assets: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['**'],
-                        dest: '<%= compile_dir %>/assets',
-                        cwd: '<%= build_dir %>/assets'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    src: ['**'],
+                    dest: '<%= compile_dir %>/assets',
+                    cwd: '<%= build_dir %>/assets'
+                }]
             },
 
             compile_data: {
-                files: [
-                    {
-                        src: ['**'],
-                        cwd: '<%= build_dir %>/data',
-                        dest: '<%= compile_dir %>/data/',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['**'],
+                    cwd: '<%= build_dir %>/data',
+                    dest: '<%= compile_dir %>/data/',
+                    expand: true
+                }]
+            },
+
+            rhc_app_dist: {
+                files: [{
+                    cwd: '<%= build_dir %>',
+                    src: ['**/**'],
+                    dest: '<%= rhc_app_dist %>',
+                    expand: true
+                }]
+            },
+            rhc_svr_dist: {
+                files: [{
+                    cwd: '<%= server_dir %>',
+                    src: ['**/**', '../build.config.js'],
+                    dest: '<%= rhc_svr_dist %>',
+                    expand: true
+                }, {
+                    cwd: '.',
+                    src: ['build.config.js'],
+                    dest: '<%= rhc_svr_dist %>',
+                    expand: true
+                }, {
+                    src: ['**'],
+                    cwd: '<%= build_dir %>/data',
+                    dest: '<%= rhc_svr_dist %>/data/',
+                    expand: true
+                }]
             },
 
         },
@@ -336,14 +372,12 @@ module.exports = function (grunt) {
          */
         ngmin: {
             compile: {
-                files: [
-                    {
-                        src: [ '<%= app_files.js %>' ],
-                        cwd: '<%= build_dir %>',
-                        dest: '<%= build_dir %>',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    src: ['<%= app_files.js %>'],
+                    cwd: '<%= build_dir %>',
+                    dest: '<%= build_dir %>',
+                    expand: true
+                }]
             }
         },
 
@@ -519,7 +553,7 @@ module.exports = function (grunt) {
                     port: '<%= app_port %>',
                     // change this to '0.0.0.0' to access the server from outside
                     hostname: '*',
-                    middleware: function (connect) {
+                    middleware: function(connect) {
                         return [lrSnippet, mountFolder(connect, 'build'), pushStateHook(connect, 'build')];
                     }
                 }
@@ -555,7 +589,7 @@ module.exports = function (grunt) {
             stash_syms: {
                 command: 'find node_modules/sofa* -type l',
                 options: {
-                    callback: function (err, stdout, stderr, cb) {
+                    callback: function(err, stdout, stderr, cb) {
 
                         if (err) {
                             grunt.warn(err);
@@ -564,14 +598,14 @@ module.exports = function (grunt) {
                         var linkedPackages = stdout.replace(/node_modules\//g, '').trim();
 
                         var unlinkCommand = linkedPackages
-                                                .split('\n')
-                                                .join(' && npm unlink ');
+                            .split('\n')
+                            .join(' && npm unlink ');
 
                         unlinkCommand = 'npm unlink ' + unlinkCommand + '&& npm install';
 
                         grunt.file.write('.symstash', linkedPackages);
 
-                        exec(unlinkCommand, null, function (err, stdout) {
+                        exec(unlinkCommand, null, function(err, stdout) {
 
                             if (err) {
                                 grunt.warn(err);
@@ -590,21 +624,20 @@ module.exports = function (grunt) {
             sym_check: {
                 command: 'find node_modules/sofa* -type l -depth 0',
                 options: {
-                    callback: function (err, stdout, stderr, cb) {
+                    callback: function(err, stdout, stderr, cb) {
 
                         if (grunt.option('force-local')) {
                             cb();
                             return;
                         }
 
-                        var hasSyms =  stdout.replace(/node_modules\//g, '')
-                                             .trim()
-                                             .length > 0;
+                        var hasSyms = stdout.replace(/node_modules\//g, '')
+                            .trim()
+                            .length > 0;
 
                         if (hasSyms) {
                             grunt.fail.warn('ATTENTION: you have sym linked packages. Please run `grunt stash-syms`, test the app and run the previous command again.');
-                        }
-                        else {
+                        } else {
                             cb();
                         }
                     }
@@ -628,7 +661,7 @@ module.exports = function (grunt) {
                 // contents of the dist folder on the root level and delete all
                 // source files but instead we just add the dist folder
                 // to the version control for the deployment branch/tag.
-                command: function () {
+                command: function() {
                     return [
                         'git add -A',
                         'git add -f dist',
@@ -696,7 +729,7 @@ module.exports = function (grunt) {
              */
             html: {
                 files: ['<%= app_files.html %>'],
-                tasks: ['index:build' ]
+                tasks: ['index:build']
             },
 
             /**
@@ -706,7 +739,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= app_files.app_tpl %>'
                 ],
-                tasks: [ 'html2js' ]
+                tasks: ['html2js']
             },
 
             /**
@@ -769,7 +802,7 @@ module.exports = function (grunt) {
                 versionFiles: [
                     'package.json'
                 ],
-                preDeployFn: function (grunt, newVersion, done) {
+                preDeployFn: function(grunt, newVersion, done) {
                     // Needed to make uglify use the banner with the new version inside
                     grunt.config.set('pkg', grunt.file.readJSON('package.json'));
 
@@ -797,7 +830,7 @@ module.exports = function (grunt) {
 
                     done();
                 },
-                postDeployFn: function (grunt, newVersion, done) {
+                postDeployFn: function(grunt, newVersion, done) {
                     grunt.task.run([
                         'shell:checkout_last_branch'
                     ]);
@@ -920,11 +953,30 @@ module.exports = function (grunt) {
         'index:compile'
     ]);
 
+    grunt.registerTask('build-rhc', [
+        'clean',
+        'html2js',
+        'jshint',
+        'sass',
+        'copy:build_assets',
+        'copy:build_appjs',
+        'copy:build_data',
+        'copy:build_langdata',
+        'copy:build_staticpages',
+        'copy:build_testfiles',
+        'copy:build_vendorcss',
+        'copy:build_vendorjs',
+        'index:build',
+        'karmaconfig',
+        'copy:rhc_app_dist',
+        'copy:rhc_svr_dist',
+    ]);
+
     /**
      * A utility function to get all app JavaScript sources.
      */
     function filterForJS(files) {
-        return files.filter(function (file) {
+        return files.filter(function(file) {
             return file.match(/\.js$/);
         });
     }
@@ -933,7 +985,7 @@ module.exports = function (grunt) {
      * A utility function to get all app CSS sources.
      */
     function filterForCSS(files) {
-        return files.filter(function (file) {
+        return files.filter(function(file) {
             return file.match(/\.css$/);
         });
     }
@@ -949,7 +1001,7 @@ module.exports = function (grunt) {
     /**
      * This command reinstalls all npm packages
      */
-    grunt.registerTask('reinstall-npm-packages', 'deletes all node_modules and fetches them again', function () {
+    grunt.registerTask('reinstall-npm-packages', 'deletes all node_modules and fetches them again', function() {
         var done = this.async();
 
         if (grunt.option('force-local')) {
@@ -957,7 +1009,7 @@ module.exports = function (grunt) {
             return;
         }
 
-        exec('rm -rf node_modules && npm install', null, function (err, stdout) {
+        exec('rm -rf node_modules && npm install', null, function(err, stdout) {
             if (err) {
                 grunt.fail.error(err);
             }
@@ -971,21 +1023,21 @@ module.exports = function (grunt) {
     /**
      * This command restores previously linked npm packages
      */
-    grunt.registerTask('pop-syms', 'restore previously saved symlinks', function () {
+    grunt.registerTask('pop-syms', 'restore previously saved symlinks', function() {
         var done = this.async();
         var fs = require('fs');
-        fs.readFile('.symstash', 'utf-8', function (err, content) {
+        fs.readFile('.symstash', 'utf-8', function(err, content) {
             if (err) {
                 grunt.warn(err);
             }
 
             var linkCommand = content
-                                .split('\n')
-                                .join(' && npm link ');
+                .split('\n')
+                .join(' && npm link ');
 
             linkCommand = 'npm link ' + linkCommand;
 
-            exec(linkCommand, null, function (err, stdout) {
+            exec(linkCommand, null, function(err, stdout) {
 
                 if (err) {
                     grunt.warn(err);
@@ -1005,20 +1057,20 @@ module.exports = function (grunt) {
      * the list into variables for the template to use and then runs the
      * compilation.
      */
-    grunt.registerMultiTask('index', 'Process index.html template', function () {
+    grunt.registerMultiTask('index', 'Process index.html template', function() {
         var dirRE = new RegExp('^(' + grunt.config('build_dir') + '|' + grunt.config('compile_dir') + ')\/', 'g');
-        var jsFiles = filterForJS(this.filesSrc).map(function (file) {
+        var jsFiles = filterForJS(this.filesSrc).map(function(file) {
             if (file.indexOf('../') > -1) {
                 file = file.replace('../', '');
             }
             return file.replace(dirRE, '');
         });
-        var cssFiles = filterForCSS(this.filesSrc).map(function (file) {
+        var cssFiles = filterForCSS(this.filesSrc).map(function(file) {
             return file.replace(dirRE, '');
         });
 
         grunt.file.copy('index.html', this.data.dir + '/index.html', {
-            process: function (contents) {
+            process: function(contents) {
                 return grunt.template.process(contents, {
                     data: {
                         scripts: jsFiles,
@@ -1035,8 +1087,8 @@ module.exports = function (grunt) {
      * run, we use grunt to manage the list for us. The `karma/*` files are
      * compiled as grunt templates for use by Karma. Yay!
      */
-    grunt.registerMultiTask('karmaconfig', 'Process karma config templates', function () {
-        var jsFiles = filterForJS(this.filesSrc).map(function (file) {
+    grunt.registerMultiTask('karmaconfig', 'Process karma config templates', function() {
+        var jsFiles = filterForJS(this.filesSrc).map(function(file) {
             if (file.indexOf('../') > -1) {
                 file = file.replace('../', grunt.config('build_dir') + '/');
             }
@@ -1044,7 +1096,7 @@ module.exports = function (grunt) {
         });
 
         grunt.file.copy('karma/karma-unit.tpl.js', grunt.config('build_dir') + '/karma-unit.js', {
-            process: function (contents) {
+            process: function(contents) {
                 return grunt.template.process(contents, {
                     data: {
                         scripts: jsFiles
@@ -1054,9 +1106,9 @@ module.exports = function (grunt) {
         });
     });
 
-    grunt.registerMultiTask('protractorconfig', 'Process protractor config templates', function () {
+    grunt.registerMultiTask('protractorconfig', 'Process protractor config templates', function() {
 
-        var jsFiles = filterForJS(this.filesSrc).map(function (file) {
+        var jsFiles = filterForJS(this.filesSrc).map(function(file) {
             if (file.indexOf('../') > -1) {
                 file = file.replace('../', grunt.config('build_dir') + '/');
             }
@@ -1068,7 +1120,7 @@ module.exports = function (grunt) {
         var suites = this.data.suites;
 
         grunt.file.copy('protractor/' + templateFile + '.tpl.js', grunt.config('build_dir') + '/' + templateFile + '.conf.js', {
-            process: function (contents) {
+            process: function(contents) {
                 return grunt.template.process(contents, {
                     data: {
                         scripts: jsFiles,
@@ -1083,7 +1135,7 @@ module.exports = function (grunt) {
     /**
      * Sets file name for our compile JS file.
      */
-    grunt.registerTask('name-min', function () {
+    grunt.registerTask('name-min', function() {
         grunt.config.set('appJsName', 'app.min.js');
     });
 
@@ -1091,9 +1143,10 @@ module.exports = function (grunt) {
      * Generates a unique name for our compile process.
      */
     /* jshint bitwise: false */
-    grunt.registerTask('name-unique', function () {
-        var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16|0, v = c === 'x' ? r : (r&0x3|0x8);
+    grunt.registerTask('name-unique', function() {
+        var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0,
+                v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
         grunt.config.set('appJsName', 'app.min.' + guid + '.js');
