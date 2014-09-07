@@ -17,6 +17,6 @@ angular.module('CouchCommerceApp').factory('titleService', ['$document', 'config
     self.setTitleWithSuffix = function (title) {
         $document.prop('title', title + ' | ' + storeName);
     };
-
+    
     return self;
 }]);

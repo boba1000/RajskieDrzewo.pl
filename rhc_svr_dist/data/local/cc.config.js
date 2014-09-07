@@ -14,7 +14,7 @@ cc.Config = {
     //apiHttpMethod: 'get',
     apiEndpoint: 'http://rdsvr-hurtemgo.rhcloud.com/',
     imageResizer: 'http://cdn1.couchcommerce.com/',
-    imageResizerEnabled: false,
+    imageResizerEnabled: true,
     mediaFolder:'http://rdsvr-hurtemgo.rhcloud.com/media/cat/',
     mediaImgExtension:'jpg',
     mediaPlaceholder:'http://rdsvr-hurtemgo.rhcloud.com/media/platzhalter.jpg',

@@ -39,7 +39,7 @@ angular.module('CouchCommerceApp')
             $http.get(CONTEXT_VIEW_TPL, { cache: $templateCache })
         ])
         .then(function (result) {
-
+                
                 var tplContent = result[0].data,
                     contextViewTpl    = result[1].data;
 
@@ -81,7 +81,7 @@ angular.module('CouchCommerceApp')
 
     self.closeView = function (viewTpl, controller) {
         if (current && current.viewTpl === viewTpl && current.controller === controller) {
-
+            
             current.$contextViewElement
                 .addClass(ANIMATION_SLIDE_OUT_SETUP_CLASS);
 
