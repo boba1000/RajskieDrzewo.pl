@@ -18,6 +18,7 @@ app.use(function(req, res) {
     if (!fs.existsSync(path + req.url)) {
 
         fs.readFile(path + '/index.html', 'utf8', function(err, data) {
+            res.writeHead(200, {"Content-Type": "text/html"});
             res.end(data);
         });
     }

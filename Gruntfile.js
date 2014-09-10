@@ -348,7 +348,7 @@ module.exports = function(grunt) {
             rhc_svr_dist: {
                 files: [{
                     cwd: '<%= server_dir %>',
-                    src: ['**/**', '../build.config.js'],
+                    src: ['**/**'],
                     dest: '<%= rhc_svr_dist %>',
                     expand: true
                 }, {
