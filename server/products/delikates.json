@@ -31,19 +31,19 @@
             "images": [
                 {
                     "sizeName": "Small",
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
                 },
                 {
                     "sizeName": "Large",
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_720x600.jpg"
                 }
             ],
              "imagesAlt": [
                 {
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/siospzoo-delikates-extra-15_2_720x600.jpg"
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_2_720x600.jpg"
                 },
                 {
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/siospzoo-delikates-extra-15_3_720x600.jpg"
+                    "url": "media/product/thumbnail/siospzoo-delikates-extra-15_3_720x600.jpg"
                 }
             ],
             "colors": [],
@@ -81,16 +81,16 @@
             "images": [
                 {
                     "sizeName": "Small",
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
                 },
                 {
                     "sizeName": "Large",
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-1.jpg"
                 }
             ],
              "imagesAlt": [
                 {
-                    "url": "http://rdsvr-hurtemgo.rhcloud.com/media/product/thumbnail/apple1-delikates-extra-5-2.jpg"
+                    "url": "media/product/thumbnail/apple1-delikates-extra-5-2.jpg"
                 }
             ],
             "colors": [],

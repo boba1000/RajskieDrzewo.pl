@@ -22,19 +22,19 @@ module.exports = {
     /**
      * Port on which the app is running
      */
-    app_port: 9000,
+    app_port: 80, //9000,
 
     /**
      * Server port on which the app local server is running
      */
-    server_port: 9001,
+    server_port: 80, //9001,
 
     /**
      * Server host on which the app local server is running
      */
-    server_host: 'localhost',
+    server_host: 'rdsvr-hurtemgo.rhcloud.com',
 
-    /**
+    /*
      * This specifies the folder in `data/` for the specific shop you want to
      * build the app.
      */

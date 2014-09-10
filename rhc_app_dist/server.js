@@ -1,21 +1,28 @@
 #!/bin/env node
 
+var ip_addr = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || '3000';
+
+var connect = require('connect');
+var http = require('http');
 var fs = require('fs');
-var ip_addr = process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1';
-var port    = process.env.OPENSHIFT_NODEJS_PORT || '3000';
-var nstatic = require("node-static");
+var serveStatic = require('serve-static');
+var dir = './';
+var path = require('path').resolve(dir);
+var app = connect();
 
-// Serve static application files
-var server = new nstatic.Server('');
+app.use(serveStatic(path));
 
+// respond to all requests
+app.use(function(req, res) {
+    if (!fs.existsSync(path + req.url)) {
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        server.serve(request, response);
-    }).resume();
-}).listen(port ,ip_addr, function(){
-    console.log('%s listening at %s ', ip_addr , port);
-})
+        fs.readFile(path + '/index.html', 'utf8', function(err, data) {
+            res.end(data);
+        });
+    }
+});
 
-
-
+//create node.js http server and listen on port
+http.createServer(app).listen(port, ip_addr);
+console.log('%s listening at %s ', ip_addr, port);
