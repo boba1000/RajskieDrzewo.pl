@@ -4185,7 +4185,6 @@ snap-drawer,
   }
   .cc-no-modern-flexbox .cc-product--tablet .cc-product__content-block {
     height: 100%;
-    position: relative;
     overflow: hidden;
   }
   .cc-no-modern-flexbox .cc-product--tablet .cc-product__image-block {
