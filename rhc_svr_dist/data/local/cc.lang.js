@@ -118,7 +118,7 @@ cc.Lang = {
     invalidInput_City: 'Proszę wpisać miasto',
     invalidInput_Country: 'Proszę wpisać kraj',
     invalidInput_Email: 'Proszę wpisać prawidłowy adres email',
-    welcomeText: 'Polskich jabłka oferowane w małym hurcie.',
+    welcomeText: 'Jabłka w małym hurcie.',
     noShippingAvailable: 'Nie ma metody wysyłki dostępne dla tego adresu lub sposobu płatności.',
     sortBy: 'soruj po',
     sortPriceAsc: 'cena rosnąco',

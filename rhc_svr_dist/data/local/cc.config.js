@@ -43,7 +43,7 @@ cc.Config = {
                 id:'privacy'
             },
             {
-                title:'Koszty i odpowiedzialność',
+                title:'Koszty i gwarancje',
                 id:'costs'
             }
     ],
