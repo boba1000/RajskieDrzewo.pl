@@ -340,7 +340,7 @@ module.exports = function(grunt) {
 
             rhc_app_dist: {
                 files: [{
-                    cwd: '<%= build_dir %>',
+                    cwd: '<%= compile_dir %>',
                     src: ['**/**'],
                     dest: '<%= rhc_app_dist %>',
                     expand: true
@@ -924,7 +924,9 @@ module.exports = function(grunt) {
         'ngmin',
         'concat:compile_js',
         'uglify:compile',
-        'index:compile'
+        'index:compile',
+        'copy:rhc_app_dist',
+        'copy:rhc_svr_dist'
     ]);
 
     grunt.registerTask('e2e', [
@@ -954,24 +956,6 @@ module.exports = function(grunt) {
         'index:compile'
     ]);
 
-    grunt.registerTask('build-rhc', [
-        'clean',
-        'html2js',
-        'jshint',
-        'sass',
-        'copy:build_assets',
-        'copy:build_appjs',
-        'copy:build_data',
-        'copy:build_langdata',
-        'copy:build_staticpages',
-        'copy:build_testfiles',
-        'copy:build_vendorcss',
-        'copy:build_vendorjs',
-        'index:build',
-        'karmaconfig',
-        'copy:rhc_app_dist',
-        'copy:rhc_svr_dist',
-    ]);
 
     /**
      * A utility function to get all app JavaScript sources.
