@@ -7,9 +7,10 @@ RajskeDrzewo.pl nie jest sklepem, nie dolicza żadnej marży i nie pobiera od U�
 RajskeDrzewo.pl to projekt społecznościowy
 Projekt z założenia jest ogólnie dostępny, darmowy i rozwijany przez społeczność wolontariuszy.
 
-Sponsorowanie hostingu [http://RajskieDrzewo.pl/](RajskieDrzewo.pl) oraz organizaje rozwoju projektu zapewnia firma Sviete. [http://sviete.pl/](sviete.pl)
+Sponsorowanie hostingu [RajskieDrzewo.pl](http://rajskiedrzewo.pl) oraz organizaje rozwoju projektu zapewnia firma Sviete. [sviete.pl](http://sviete.pl)
 
 Kod projektu bazuje na otwartych rozwiązaniach i jest dostępny na licencji wolnego i otwartego oprogramowania GNU GPL v3.
+
 
 
 
