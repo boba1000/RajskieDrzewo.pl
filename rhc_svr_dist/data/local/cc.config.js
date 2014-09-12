@@ -2,9 +2,9 @@ cc.Config = {
     loggingEnabled: true,
     useShopUrls: false,
     storeCode: '35444',
-    storeName: 'RajskeDrzewo.pl',
-    originalUrl:'http://www.RajskeDrzewo.pl/',
-    noRedirectSuffix:'desktop',
+    storeName: 'RajskieDrzewo.pl',
+    originalUrl:'http://www.RajskieDrzewo.pl/',
+    noRedirectSuffix:'seller',
     searchUrl: 'http://rdsvr-hurtemgo.rhcloud.com/search',
     apiUrl: 'http://rdsvr-hurtemgo.rhcloud.com/products',
     checkoutUrl:'http://rdsvr-hurtemgo.rhcloud.com/checkout/',
@@ -62,16 +62,16 @@ cc.Config = {
     gitHubRepoUrl: 'https://github.com/sviete/RajskieDrzewo.pl',
     showPayPalButton: false,
     showCheckoutButton: true,
-    googleAnalytics:'UA-42659602-1',
-    googleAnalyticsSetDomain:'couchdemoshop.couchcommerce.com',
-    googleConversionId:1072140179,
-    googleConversionLabel:'r8ogCLjfZBCTn57_Aw',
+    googleAnalytics:'UA-54717806-1',
+    googleAnalyticsSetDomain:'rajskiedrzewo.pl',
+    googleConversionId:'',
+    googleConversionLabel:'',
     bingSiteId: '',
     bingDomainId: '',
     bingActionId: '',
     meta: {
         robots: 'noodp, noydir',
-        description: 'RajskeDrzewo.pl jedz jabłka na zdrowie'
+        description: 'RajskieDrzewo.pl jedz jabłka na zdrowie'
     }
 };
 

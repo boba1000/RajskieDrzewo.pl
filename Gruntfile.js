@@ -108,7 +108,8 @@ module.exports = function(grunt) {
                         '!<%= rhc_app_dist %>/server.js',
                         '!<%= rhc_app_dist %>/README.md',
                         '!<%= rhc_app_dist %>/deplist.txt',
-                        '!<%= rhc_app_dist %>/package.json'
+                        '!<%= rhc_app_dist %>/package.json',
+                        '!<%= rhc_app_dist %>/seller'
                     ]
                 }]
             },
