@@ -120,7 +120,6 @@ module.exports = function(grunt) {
                         '<%= rhc_svr_dist %>/*',
                         '!<%= rhc_svr_dist %>/.git*',
                         '!<%= rhc_svr_dist %>/.openshift',
-                        '!<%= rhc_svr_dist %>/server.js',
                         '!<%= rhc_svr_dist %>/README.md',
                         '!<%= rhc_svr_dist %>/deplist.txt',
                         '!<%= rhc_svr_dist %>/package.json'

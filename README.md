@@ -1,11 +1,15 @@
+![RajskieDrzewo.pl](http://www.rajskiedrzewo.pl/assets/images/logo_big.png)
 # RajskieDrzewo.pl
-English version below
+###Description in Polish, English version below
 
-RajskeDrzewo.pl jest serwisem internetowym służącym do wyszukiwania i zamawiania jabłek. Wyszukiwanie odbywa się na podstawie informacji zgłoszonych/przesłanych przez producentów i sprzedawców jabłek.
+RajskeDrzewo.pl jest serwisem internetowym służącym do wyszukiwania i zamawiania jabłek w małym hurcie (na skrzynki). 
+
+Projekt z założenia ogólnie dostępny, darmowy i rozwijany przez społeczność.
+
+
+Wyszukiwanie odbywa się na podstawie informacji zgłoszonych/przesłanych przez producentów i sprzedawców jabłek.
 RajskeDrzewo.pl nie jest sklepem, nie dolicza żadnej marży i nie pobiera od Użytkowników żadnych opłat. Zapłata za zamówiony towar odbywa się na warunkach przedstawionych przez sprzedawcę/sadownika.
 
-RajskeDrzewo.pl to projekt społecznościowy
-Projekt z założenia jest ogólnie dostępny, darmowy i rozwijany przez społeczność wolontariuszy.
 
 Sponsorowanie hostingu [RajskieDrzewo.pl](http://rajskiedrzewo.pl) oraz organizaje rozwoju projektu zapewnia firma Sviete. [sviete.pl](http://sviete.pl)
 
@@ -14,17 +18,20 @@ Kod projektu bazuje na otwartych rozwiązaniach i jest dostępny na licencji wol
 
 
 
-## Prerequisites
+###Description in English, Polish version above
+
+
+
+## Technical Description
+### Prerequisites
 You need to have the following tools installed globally on you machine:
 
 - node
 - npm
 - bower
-- karma
-- compass
-- protractor
 
-## Installation
+
+### Installation
 
 Clone the repo via git:
 ```sh
@@ -36,19 +43,9 @@ Install depencencies:
 $ npm install
 $ bower install
 ```
-## Running the App
+### Running the App
 
-To run the app you have to make sure that a selenium server is running, since the
-inital build task will run all provided e2e tests. To run a selenium server all you
-have to do is to run
-
-```sh
-webdriver-manager start
-```
-
-The webdriver-manager comes with the installation of protractor (`npm install -g protractor`).
-
-After that simply run:
+To run the app you have simply run:
 ```sh
 $ grunt watch
 ```
@@ -56,10 +53,10 @@ This will run the `build` and the `delta` task. You can now open a browser at `h
 
 The task also takes care of re-running sub targets during development when changes occur.
 
-## Configuration
+### Configuration
 To configure the app, makes changes in the `build.conf.js` file accordingly.
 
-## Build Tasks
+### Build Tasks
 
 - `grunt build` - generates a build of the app. This can be run in the browser.
 - `grunt compile` - compiles a built app. The result is a production ready package.
@@ -69,5 +66,6 @@ To configure the app, makes changes in the `build.conf.js` file accordingly.
 #Contribute
 
 We'd love you to contribute.
+Please contact us: [info@sviete.pl](info@sviete.pl)
 
 
