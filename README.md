@@ -1,6 +1,6 @@
 ![RajskieDrzewo.pl](http://cwms.pl/images/logo_big_black.png)
 # RajskieDrzewo.pl
-###Description in Polish, English version below
+######Description in Polish, English version below
 
 RajskeDrzewo.pl jest serwisem internetowym służącym do wyszukiwania i zamawiania jabłek w małym hurcie (skrzynki). 
 
@@ -18,9 +18,9 @@ Kod projektu bazuje na otwartych rozwiązaniach i jest dostępny na licencji wol
 
 
 
-###Description in English, Polish version above
+######Description in English, Polish version above
 
-RajskeDrzewo.pl is a website for searchung and ordering apples in a small wholesale amount (boxes). 
+RajskeDrzewo.pl is a website for searching and ordering apples in a small wholesale amount (boxes). 
 
 The project is publicly accessible, free and developed by the community. 
 
