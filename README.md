@@ -1,8 +1,8 @@
-![RajskieDrzewo.pl](http://www.rajskiedrzewo.pl/assets/images/logo_big.png)
+![RajskieDrzewo.pl](http://cwms.pl/images/logo_big_black.png)
 # RajskieDrzewo.pl
 ###Description in Polish, English version below
 
-RajskeDrzewo.pl jest serwisem internetowym służącym do wyszukiwania i zamawiania jabłek w małym hurcie (na skrzynki). 
+RajskeDrzewo.pl jest serwisem internetowym służącym do wyszukiwania i zamawiania jabłek w małym hurcie (skrzynki). 
 
 Projekt z założenia ogólnie dostępny, darmowy i rozwijany przez społeczność.
 
@@ -20,6 +20,17 @@ Kod projektu bazuje na otwartych rozwiązaniach i jest dostępny na licencji wol
 
 ###Description in English, Polish version above
 
+RajskeDrzewo.pl is a website for searchung and ordering apples in a small wholesale amount (boxes). 
+
+The project is publicly accessible, free and developed by the community. 
+
+Apple searching is based on the information submitted / sent by apple sellers. 
+RajskeDrzewo.pl is not a store, we do not take any money from  the fruit growers and do not charge any fees from our users. The payment for ordered goods takes place under the conditions set by the seller / grower. 
+
+
+The [RajskieDrzewo.pl] (http://rajskiedrzewo.pl) app hosting and the project dev management is sponsored by [sviete.pl] (http://sviete.pl) 
+
+Project code is based on an open solutions and is licensed free and open source software under the GNU GPL v3.
 
 
 ## Technical Description
@@ -66,6 +77,6 @@ To configure the app, makes changes in the `build.conf.js` file accordingly.
 #Contribute
 
 We'd love you to contribute.
-Please contact us: [info@sviete.pl](info@sviete.pl)
+Please contact us: <info@sviete.pl>
 
 
